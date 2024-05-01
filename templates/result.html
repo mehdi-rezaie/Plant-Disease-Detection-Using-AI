@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Plant Disease Detection - Result</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Times New Roman', Times, serif;
+            padding: 5px;
+            display: inline-block;
+            color: white;
+        }
+
+        h2 {
+            font-family: 'Times New Roman', Times, serif;
+            padding: 5px;
+            display: inline-block;
+            color: #40653a;
+        }
+
+        .result-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 100px;
+        }
+
+        .result-container h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .output {
+            background-color: #07f863;
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        .loading-bar {
+            background-color: #07f863;
+            height: 20px;
+            width: 0;
+            margin-top: 20px;
+            transition: width 5s linear;
+            position: relative;
+        }
+
+        .loading-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #000;
+            font-weight: bold;
+        }
+
+        .paragraph-container {
+            max-width: 800px;
+            margin-top: 20px;
+            text-align: justify;
+            margin-left: auto;
+            margin-right: auto;
+            display: none;
+        }
+
+        .paragraph-container p {
+            margin-bottom: 15px;
+        }
+
+        .go-back-button {
+            margin-top: 20px;
+            background-color: #07f863;
+            color: #000;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            border: none;
+            margin-left: 10px;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var loadingBar = document.getElementById("loadingBar");
+            var loadingText = document.getElementById("loadingText");
+            var output = document.getElementById("output");
+            var resultContainer = document.getElementById("resultContainer");
+            var goBackButton = document.getElementById("goBackButton");
+            var paragraphContainer = document.getElementById("paragraphContainer");
+
+            // Show the loading bar for 5 seconds
+            setTimeout(function() {
+                loadingBar.style.width = "100%";
+
+                // Show the result after 5 seconds
+                setTimeout(function() {
+                    loadingBar.style.display = "none";
+                    output.style.display = "block";
+                    resultContainer.style.justifyContent = "flex-start";
+                    goBackButton.style.display = "block";
+                    paragraphContainer.style.display = "block";
+                }, 5000);
+            }, 0);
+        });
+    </script>
+</head>
+<body>
+<header>
+    <h1>Plant Disease Detection</h1>
+</header>
+<div class="result-container" id="resultContainer">
+    <h2>Detection Result</h2>
+    <div class="loading-bar" id="loadingBar">
+        <div class="loading-text" id="loadingText">Analyzing, Please wait...</div>
+    </div>
+    <div class="output" id="output" style="display: none;">
+        Output: {{ output }}
+    </div>
+    <div class="paragraph-container" id="paragraphContainer">
+        <p>
+            How to identify black rot
+            Fruit symptoms
+            Large brown rotten areas can form anywhere on the fruit but are most common on the blossom end.
+            Brown to black concentric rings can often be seen on larger infections.
+            The flesh of the apple is brown but remains firm.
+            Small, black spots can be seen on older fruit infections. These are fungal spore producing structures, called pycnidia.
+            Some fruit mummify (shrivel and dry out) and remain attached to the tree.
+            Occasionally fruit are infected early in the season. This results in fruit that ripen early and are rotten at the core.
+            Leaf symptoms
+            Infected leaves develop "frog-eye leaf spot.”These are circular spots with purplish or reddish edges and light tan interiors.
+            Branch symptoms
+            Cankers appear as a sunken, reddish-brown area on infected branches. Cankers often have rough or cracked bark.
+            Cankers may be hard to see. If you see rotten fruit or frog-eye leaf spot, inspect your trees for cankers.
+            Sunken cankers may appear:
+            On the southwest side of young trees, where winter injury is common.
+            Or at crotches where branches join the main trunk. These areas are typically the last to harden off in fall.
+        </p>
+    </div>
+    <button class="go-back-button" id="goBackButton" style="display: none;" onclick="window.history.back();">Go Back</button>
+</div>
+</body>
+</html>

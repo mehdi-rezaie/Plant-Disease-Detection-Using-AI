@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Register - Plant Disease Detection</title>
+  <style>
+    body {
+      background-color: #f7f7f7;
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-image: url('plant1.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .register-container {
+      background-color: #ffffff;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      margin: 100px auto;
+      max-width: 400px;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .input-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      border: 1px solid #cccccc;
+      border-radius: 5px;
+      font-size: 16px;
+      padding: 10px;
+    }
+
+    button {
+      background-color: #228b22;
+      border: none;
+      border-radius: 5px;
+      color: #ffffff;
+      cursor: pointer;
+      font-size: 16px;
+      padding: 10px;
+    }
+
+    button:hover {
+      background-color: #1e7e1e;
+    }
+
+    button:active {
+      background-color: #135113;
+    }
+
+    .login-link {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .login-link a {
+      color: #228b22;
+      text-decoration: none;
+    }
+
+    .login-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+  <script>
+    // Function to handle registration form submission
+    function handleRegistration(event) {
+      event.preventDefault();
+
+      // Get form values
+      var username = document.getElementById('username').value;
+      var email = document.getElementById('email').value;
+      var password = document.getElementById('password').value;
+      var confirmPassword = document.getElementById('confirm-password').value;
+
+      // Validate form fields
+      if (!username || !email || !password || !confirmPassword) {
+        alert('Please fill in all fields');
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        alert('Passwords do not match');
+        return;
+      }
+
+      // Perform registration process
+      // Add your code here
+
+      // Clear form fields
+      document.getElementById('username').value = '';
+      document.getElementById('email').value = '';
+      document.getElementById('password').value = '';
+      document.getElementById('confirm-password').value = '';
+
+      // Redirect to login page or perform other actions after successful registration
+      window.location.href = 'Login.html';
+    }
+  </script>
+</head>
+
+<body>
+  <div class="register-container">
+    <h1>Register</h1>
+    <form>
+      <div class="input-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username" required>
+      </div>
+      <div class="input-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      </div>
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+      </div>
+      <div class="input-group">
+        <label for="confirm-password">Confirm Password</label>
+        <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password"
+          required>
+      </div>
+      <button type="submit">Register</button>
+    </form>
+    <p class="login-link">Already have an account? <a href="Login.html">Login here</a></p>
+  </div>
+</body>
+
+</html>
